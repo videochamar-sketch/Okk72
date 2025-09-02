@@ -6,23 +6,25 @@ import { ScrollTrigger } from 'gsap/all'
 
 const Projects = () => {
 
+  // Updated projects array to use YouTube video IDs instead of image URLs
   const projects = [{
-    image1: 'https://k72.ca/uploads/caseStudies/PJC/Thumbnails/PJC_SiteK72_Thumbnail_1280x960-1280x960.jpg',
-    image2: 'https://k72.ca/uploads/caseStudies/WIDESCAPE/WS---K72.ca---Thumbnail-1280x960.jpg'
+    video1: 'dQw4w9WgXcQ', // Sample YouTube video ID
+    video2: 'jNQXAC9IVRw' // Sample YouTube video ID
   }, {
-    image1: 'https://k72.ca/uploads/caseStudies/OKA/OKA_thumbnail-1280x960.jpg',
-    image2: 'https://k72.ca/uploads/caseStudies/Opto/thumbnailimage_opto-1280x960.jpg'
+    video1: 'M7lc1UVf-VE', // Sample YouTube video ID
+    video2: 'ZZ5LpwO-An4' // Sample YouTube video ID
   }, {
-    image1: 'https://k72.ca/uploads/caseStudies/LAMAJEURE_-_Son_sur_mesure/chalaxeur-thumbnail_img-1280x960.jpg',
-    image2: 'https://k72.ca/uploads/caseStudies/SHELTON/thumbnailimage_shelton-1280x960.jpg'
+    video1: 'kJQP7kiw5Fk', // Sample YouTube video ID
+    video2: 'tgbNymZ7vqY' // Sample YouTube video ID
   }]
 
 
   gsap.registerPlugin(ScrollTrigger)
 
   useGSAP(function () {
+    // Adapted GSAP animation for video containers with improved height values
     gsap.from('.hero', {
-      height: '100px',
+      height: '200px', // Increased minimum height for better video visibility
       stagger: {
         amount: 0.4
       },
@@ -36,14 +38,14 @@ const Projects = () => {
   })
 
   return (
-    <div className='lg:p-4 p-2 mb-[100vh]'>
+    <div className='lg:p-8 p-4 mb-[100vh]'> {/* Increased padding for better video spacing */}
       <div className=' pt-[45vh]'>
         <h2 className='font-[font2] lg:text-[9.5vw] text-7xl uppercase'>Projets</h2>
       </div>
-      <div className='-lg:mt-20 lol'>
+      <div className='lg:mt-16 mt-8 lol'> {/* Improved top margin for better visual separation */}
         {projects.map(function (elem, idx) {
-          return <div key={idx} className='hero w-full lg:h-[850px] mb-4 flex lg:flex-row flex-col lg:gap-4 gap-2'>
-            <ProjectCard image1={elem.image1} image2={elem.image2} />
+          return <div key={idx} className='hero w-full lg:h-[600px] mb-12 flex lg:flex-row flex-col lg:gap-8 gap-6'> {/* Optimized height and spacing for videos */}
+            <ProjectCard video1={elem.video1} video2={elem.video2} />
           </div>
         })}
 
